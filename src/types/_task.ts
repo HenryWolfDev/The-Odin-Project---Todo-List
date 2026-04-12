@@ -5,7 +5,7 @@ export interface ITask {
   id: string;
   title: string;
   description?: string | undefined;
-  dueDate: Temporal.PlainDate | undefined;
+  dueDate: Temporal.PlainDate;
   priority: PriorityLevel;
   isDone: boolean;
 }
