@@ -21,6 +21,10 @@ export class Task implements ITask {
     this.description = newDescr;
   }
 
+  updateDate(newDate: Temporal.PlainDate): void {
+    this.dueDate = newDate;
+  }
+
   toggleIsDone(): void {
     this.isDone = !this.isDone;
   }
