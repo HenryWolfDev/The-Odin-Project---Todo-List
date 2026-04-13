@@ -11,3 +11,13 @@ export interface EventMap {
   'project-deleted': Project;
   'view-changed': ViewChanged;
 }
+
+export const EVENTS = {
+  TASK_TOGGLED: 'task-toggled',
+  TASK_EDITED: 'task-edited',
+  TASK_ADDED: 'task-added',
+  TASK_DELETED: 'task-deleted',
+  PROJECT_ADDED: 'project-added',
+  PROJECT_DELETED: 'project-deleted',
+  VIEW_CHANGED: 'view-changed',
+} as const;
