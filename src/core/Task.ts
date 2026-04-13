@@ -1,5 +1,6 @@
 import { Temporal } from 'temporal-polyfill';
 import type { ITask, PriorityLevel } from '../types/_task';
+import type { IStorageTask } from '../types/_storageTask';
 
 export class Task implements ITask {
   id: string = crypto.randomUUID();
@@ -33,7 +34,7 @@ export class Task implements ITask {
     this.priority = newPrio;
   }
 
-  static fromJSON(data: ITask): Task {
+  static fromJSON(data: IStorageTask): Task {
     const newTask = new Task(data.title);
     newTask.id = data.id;
     if (data.description) {
