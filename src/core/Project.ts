@@ -1,5 +1,6 @@
 import type { IProject } from '../types/_project';
-import type { Task } from './Task';
+import type { IStorageProject } from '../types/_storageProject';
+import { Task } from './Task';
 
 export class Project implements IProject {
   id: string = crypto.randomUUID();
@@ -27,5 +28,15 @@ export class Project implements IProject {
 
   get completedCount(): number {
     return this.todos.filter(tasks => tasks.isDone).length;
+  }
+
+  static fromJSON(data: IStorageProject): Project {
+    const newProject = new Project(data.name);
+    newProject.id = data.id;
+
+    const tasks = data.todos.map(Task.fromJSON);
+    newProject.todos = tasks;
+
+    return newProject;
   }
 }
